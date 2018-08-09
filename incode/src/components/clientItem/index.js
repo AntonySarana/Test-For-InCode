@@ -1,4 +1,5 @@
 import React from 'react'
+import {Header, Image} from 'semantic-ui-react';
 
 export default (props) => {
   const {
@@ -8,18 +9,15 @@ export default (props) => {
   } = props.user.general;
   const {
     title
-  } = props.user.job
+  } = props.user.job;
+  const name = `${firstName} ${lastName}`;
   return (
-    <div className='ClientItem'>
-      <img src={avatar} />
-      <div className='clientItem__info'>
-        <p>
-          {firstName} {lastName}
-        </p>
-        <p>
-          {title}
-        </p>
-      </div>
-    </div>
+    <Header as ='h2'>
+      <Image src={avatar}  width='60px'/>
+      <Header.Content>
+        {name}
+        <Header.Subheader>{title}</Header.Subheader>
+      </Header.Content>
+    </Header>
   )
 }
