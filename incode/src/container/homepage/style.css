@@ -1,0 +1,10 @@
+.page {
+    margin: 0 0 15px 15px;
+    padding: 0;
+}
+.page__main {
+    display: flex;
+}
+.page__main:last-child {
+    flex-grow: 4;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './style.css';
 // import components and containers
 import Header from '../../components/header';
 import ClientsList from '../clientsList';

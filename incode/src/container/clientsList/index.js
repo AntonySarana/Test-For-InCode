@@ -1,9 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import data from '../../clients.json';
+//components
 import ClientItem from '../../components/clientItem';
+import selectuser from '../../action/selectUser';
+//styles
+import {Input,Icon} from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+import './style.css';
 
-export default class ClientList extends React.Component{
+ class ClientList extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -13,12 +19,12 @@ export default class ClientList extends React.Component{
   }
   componentWillMount(){
     this.setState({
-      data,
+      data: this.props.data,
     })
         
   }
   onSearch = (e) =>{
-    const data = this.state.data.filter(item =>{
+    const data = this.props.data.filter(item =>{
       let isFind = false
       for (let element in item) {
         for (let subElement in item[element]) {
@@ -31,21 +37,31 @@ export default class ClientList extends React.Component{
       data,
     })
   }
+
+  selectUser = (user) =>{
+    this.props.selectedUser(user);
+    console.log(this.props);
+  }
+
   render(){
     return(
-      <div>
-        <input
-            placeholder='Search users...'
-            name='search'
-            onChange = {(e)=>this.onSearch(e)}
-            
-          />
+      <div className='clientList'>
+        <Input 
+          icon='users' 
+          iconPosition='left' 
+          placeholder='Search users...' 
+          name='search'
+          size = 'medium'
+          className = 'clientList_input'
+          onChange = {(e)=>this.onSearch(e)}
+        />
         {/* !this.state.data */true && 
             this.state.data.map((item,index) => {
               return (
                 <ClientItem
                   key = {index}
                   user = {item}
+                  selectUser = {this.selectUser}
                 />
               )
             })
@@ -54,3 +70,16 @@ export default class ClientList extends React.Component{
     )
   }
 } 
+
+const mapStateToProps = (state) => {
+  return{
+    data : state.data,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return{
+    selectedUser : user => dispatch(selectuser(user))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ClientList)
