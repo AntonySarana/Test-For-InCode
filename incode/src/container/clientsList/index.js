@@ -5,24 +5,32 @@ import ClientItem from '../../components/clientItem';
 import ClientSearch from '../../components/clientSearch';
 
 export default class ClientList extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            data:[],
-        }
+  constructor(props){
+    super(props);
+    this.state = {
+      data:[],
     }
-    componentWillMount(){
-        this.setState({
-            data,
-        })
+  }
+  componentWillMount(){
+    this.setState({
+      data,
+    })
         
-    }
-    render(){
-        console.log(this.state.data[1]);
-        return(
-            <div>
-                client data
-            </div>
-        )
-    }
+  }
+  render(){
+    return(
+      <div>
+        {/* !this.state.data */true && 
+            this.state.data.map((item,index) => {
+              return (
+                <ClientItem
+                  key = {index}
+                  user = {item}
+                />
+              )
+            })
+        }
+      </div>
+    )
+  }
 } 
