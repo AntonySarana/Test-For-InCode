@@ -1,32 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
+import './style.css';
 
 function clientDetail(props) {
-  /* const {
-    firstName,
-    lastName,
-    avatar
-  } = props.selectUser.general;
-  const name = `${firstName} ${lastName}`;
-
-  const {
-    company,
-    title,
-  } = props.selectUser.job;
-  const aboutJob = `${title} - ${company}`; */
-  const printOther = (user) => {
-    for (let key in user) {
-      for (let subKey in user[key]) {
-        return <div>{`${user[key]} - ${user[key][subKey]}`}</div> 
-      }
-    }
-  }
 
   return (
     <React.Fragment>
       {props.selectUser.general && 
-      <div className="ui items">
+      <div className="ui items clientDetail">
       {console.log(props.selectUser.general)}
         <div className="item">
           <div className="ui small image">
@@ -34,40 +16,49 @@ function clientDetail(props) {
           </div>
           <div className="content">
             <div className="header">
-              {`${props.selectUser.general.firstName} ${props.selectUser.general.lastName}`}</div>
+              <h2>{`${props.selectUser.general.firstName} ${props.selectUser.general.lastName}`}</h2></div>
             <div className="meta">
-              <span className="job-title">{`${props.selectUser.job.title} -`}</span>
-              <span className="job-company">{props.selectUser.job.company}</span>
+              <span className="job">
+                <h3>{`${props.selectUser.job.title} - ${props.selectUser.job.company}`}</h3>
+              </span>
+              
             </div>
             <div className="description">
                 <p className='info-item'>
+                  
+                  <span>email - </span>
                   {
-                    `email - ${props.selectUser.contact.email}`
+                    `${props.selectUser.contact.email}`
                   }
                 </p>
                 <p className='info-item'>
+                <span>phone - </span>
                   {
-                    `phone - ${props.selectUser.contact.phone}`
+                    `${props.selectUser.contact.phone}`
                   }
                 </p>
                 <p className='info-item'>
+                <span>street - </span>
                   {
-                    `street - ${props.selectUser.address.street}`
+                    `${props.selectUser.address.street}`
                   }
                 </p>
                 <p className='info-item'>
+                <span>city - </span>
                   {
-                    `city - ${props.selectUser.address.city}`
+                    `${props.selectUser.address.city}`
                   }
                 </p>
                 <p className='info-item'>
+                <span>zipCode - </span>
                   {
-                    `zipCode - ${props.selectUser.address.zipCode}`
+                    `${props.selectUser.address.zipCode}`
                   }
                 </p>
                 <p className='info-item'>
+                  <span>country - </span>
                   {
-                    `country - ${props.selectUser.address.country}`
+                    `${props.selectUser.address.country}`
                   }
                 </p>
             </div>

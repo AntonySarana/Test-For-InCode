@@ -1,0 +1,16 @@
+.clientDetail {
+    padding: 10px;
+}
+.clientDetail .image {
+    width:128px !important;
+}
+.clientDetail .meta{
+    color: black !important;
+    border-bottom: 1px gray solid;
+}
+
+.info-item span {
+    display: inline-flex;
+    width: 80px;
+   
+}
