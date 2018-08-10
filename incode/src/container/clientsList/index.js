@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import ClientItem from '../../components/clientItem';
 import selectuser from '../../action/selectUser';
 //styles
-import {Input,Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './style.css';
 
@@ -51,15 +50,14 @@ import './style.css';
   render(){
     return(
       <div className='clientList'>
-          <div class="ui left icon input">
+          <div class="ui left icon input clientList_input">
             <input 
               type="text" 
               placeholder="Искать пользователей..."
               name='search'
-              className = 'clientList_input'
               onChange = {(e)=>this.onSearch(e)}
               />
-            <i class="users icon"></i>
+            <i className="users icon clientList_input_icon "></i>
             </div>
         {/* !this.state.data */true && 
             this.state.data.map((item,index) => {

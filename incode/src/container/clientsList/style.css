@@ -1,0 +1,10 @@
+.clientList {
+}
+.clientList_input {
+    padding: 10px;
+    width: 100%;
+    border-right: solid 3px black;
+}
+.clientList_input_icon  {
+    left:10px;
+}
