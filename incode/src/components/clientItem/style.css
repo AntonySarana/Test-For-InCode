@@ -1,12 +1,16 @@
 .clientItem {
-    margin: 5px 10px !important;
+    margin: 0 !important;
+    padding: 10px !important;
     border-right: solid 3px black;
 }
-.clientItem:hover {
-    box-shadow: inset 0 0 110px lightgray;
-    cursor: pointer;
-    border-right: none;
+useritem{
+    margin: 0;
 }
-.clientItem:checked {
-    border-right: none;
+.clientItem:hover {
+    cursor: pointer;
+}
+.aclientItem-active {
+    border:solid 3px black;
+    border-right-color: white;
+    transition: 0.5s;
 }

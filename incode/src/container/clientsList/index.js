@@ -15,6 +15,7 @@ import './style.css';
     this.state = {
       data:[],
       search:'',
+      activeUser:'',
     }
   }
   componentWillMount(){
@@ -39,6 +40,10 @@ import './style.css';
   }
 
   selectUser = (user) =>{
+    const name = `${user.general.firstName} ${user.general.lastName}`;
+    this.setState({
+      activeUser:name,
+    })
     this.props.selectedUser(user);
     console.log(this.props);
   }
@@ -46,19 +51,21 @@ import './style.css';
   render(){
     return(
       <div className='clientList'>
-        <Input 
-          icon='users' 
-          iconPosition='left' 
-          placeholder='Search users...' 
-          name='search'
-          size = 'medium'
-          className = 'clientList_input'
-          onChange = {(e)=>this.onSearch(e)}
-        />
+          <div class="ui left icon input">
+            <input 
+              type="text" 
+              placeholder="Искать пользователей..."
+              name='search'
+              className = 'clientList_input'
+              onChange = {(e)=>this.onSearch(e)}
+              />
+            <i class="users icon"></i>
+            </div>
         {/* !this.state.data */true && 
             this.state.data.map((item,index) => {
               return (
                 <ClientItem
+                  activeUser = {this.state.activeUser}
                   key = {index}
                   user = {item}
                   selectUser = {this.selectUser}

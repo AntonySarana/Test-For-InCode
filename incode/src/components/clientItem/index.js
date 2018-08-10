@@ -1,5 +1,4 @@
 import React from 'react'
-import {Header, Image} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './style.css';
 
@@ -13,21 +12,22 @@ export default (props) => {
     title
   } = props.user.job;
   const name = `${firstName} ${lastName}`;
-
+  const itemClass = (name == props.activeUser) ? 'ui items clientItem aclientItem-active' : 'ui items clientItem';
   return (
-    <Header 
-      as ='h3' 
-      onClick = {()=>props.selectUser(props.user)}
-      className = 'clientItem' >
-      <Image 
-        src = {avatar}
-        inline
-        circular
-        size = 'large'/>
-      <Header.Content>
-        {name}
-        <Header.Subheader>{title}</Header.Subheader>
-      </Header.Content>
-    </Header>
-  )
+    <div 
+      className={itemClass}  
+      onClick={() => props.selectUser(props.user)}>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src={avatar}/>
+        </div>
+          <div class="content">
+            <div class="header">{name}</div>
+            <div class="description">
+              <p>{title}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      )
 }
