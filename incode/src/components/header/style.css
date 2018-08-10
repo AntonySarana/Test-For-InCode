@@ -1,0 +1,7 @@
+.Header{
+    border-bottom: 2px solid gray;
+}
+.Header-Logo {
+    height: 150px;
+    margin: 0 auto;
+}

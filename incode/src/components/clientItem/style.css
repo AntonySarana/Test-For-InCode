@@ -1,7 +1,7 @@
 .clientItem {
     margin: 0 !important;
     padding: 10px !important;
-    border-right: solid 3px black;
+    border-right: solid 2px gray;
 }
 useritem{
     margin: 0;
@@ -10,7 +10,7 @@ useritem{
     cursor: pointer;
 }
 .aclientItem-active {
-    border:solid 3px black;
+    border:solid 2px gray;
     border-right-color: white;
-    transition: 0.5s;
+    transition: 0.7s;
 }
